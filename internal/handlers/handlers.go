@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ChunHou23/booking-service/pkg/config"
-	"github.com/ChunHou23/booking-service/pkg/models"
-	"github.com/ChunHou23/booking-service/pkg/render"
+	"github.com/ChunHou23/booking-service/internal/config"
+	"github.com/ChunHou23/booking-service/internal/models"
+	"github.com/ChunHou23/booking-service/internal/render"
 )
 
 var Repo *Repository
