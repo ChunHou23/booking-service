@@ -1,11 +1,56 @@
 {{template "base" .}}
 
 {{define "content"}}
+    <div id="main-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#main-carousel" data-slide-to="1"></li>
+            <li data-target="#main-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/images/woman-laptop.png" class="d-block w-100" alt="woman and laptop">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>woman and laptop.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/static/images/outside.png" class="d-block w-100" alt="outside">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>outside.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/static/images/tray.png" class="d-block w-100" alt="tray">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Tray.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>This is the home page</h1>
-                <p>Some text in home page</p>
+                <h1 class="text-center mt-4">Welcome to bed & breakfast</h1>
+                <p>
+                    Welcome to [Your Bed and Breakfast Name], where comfort meets charm in the heart of [Location/City]. Nestled [describe location, e.g., "along the picturesque coastline" or "amongst serene countryside"], our historic inn offers a tranquil retreat for travelers seeking [describe your unique offerings, e.g., "a blend of modern amenities and old-world hospitality"].
+
+                    Each morning, awaken to the aroma of freshly brewed coffee and a delicious homemade breakfast served in our cozy dining area or on our sunlit patio. Whether you're here for a romantic getaway, a family vacation, or a solo adventure, our [number] beautifully appointed rooms are designed to ensure your stay is both relaxing and memorable.
+
+                    Explore [Your Location]'s [mention local attractions, e.g., "quaint shops, art galleries, and hiking trails"] just steps from our doorstep, or simply unwind in our lush garden with a good book and a glass of wine. At [Your Bed and Breakfast Name], our commitment to personalized service and attention to detail ensures that every guest feels right at home.
+
+                    Discover why travelers return to [Your Bed and Breakfast Name] time and again for a retreat that combines comfort, character, and a true sense of place. We look forward to welcoming you soon!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <a href="/search-availability" class="btn btn-success">Make Reservation Now</a>
             </div>
         </div>
     </div>
