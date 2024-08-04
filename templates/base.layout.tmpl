@@ -204,6 +204,18 @@
                     custom: custom,
                 }
             }
+            
+            {{with .Error}}
+                notify("{{.}}", "error")
+            {{end}}
+
+            {{with .Flash}}
+                notify("{{.}}", "success")
+            {{end}}
+
+            {{with .Warning}}
+                notify("{{.}}", "warning")
+            {{end}}
         </script>
 
         {{block "js" .}}
