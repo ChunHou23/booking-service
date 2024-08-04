@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/ChunHou23/booking-service/internal/config"
+	"github.com/ChunHou23/booking-service/internal/forms"
 	"github.com/ChunHou23/booking-service/internal/models"
 	"github.com/ChunHou23/booking-service/internal/render"
 )
@@ -61,7 +62,7 @@ func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	start := r.Form.Get("start")
 	end := r.Form.Get("end")
-
+	log.Print(start)
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
 }
 
@@ -85,20 +86,41 @@ func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) MakeReservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
+	var emptyReservation models.Reservation
+	data := make(map[string]interface{})
+	data["reservation"] = emptyReservation
+
+	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+		Data: data,
+	})
 }
 
 func (m *Repository) PostMakeReservation(w http.ResponseWriter, r *http.Request) {
-	resp := models.JsonResponse{
-		OK:      false,
-		Message: "Available!",
-	}
-
-	out, err := json.MarshalIndent(resp, "", "     ")
+	err := r.ParseForm()
 	if err != nil {
 		log.Println(err)
+		return
+	}
+	reservation := models.Reservation{
+		FirstName: r.Form.Get("first_name"),
+		LastName:  r.Form.Get("last_name"),
+		Email:     r.Form.Get("email"),
+		Phone:     r.Form.Get("phone_number"),
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(out)
+	form := forms.New(r.PostForm)
+	form.Required("first_name", "last_name", "email", "phone_number")
+	form.MinLength("first_name", 3, r)
+	form.IsEmail("email")
+	if !form.Valid() {
+		data := make(map[string]interface{})
+		data["reservation"] = reservation
+
+		render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{
+			Form: form,
+			Data: data,
+		})
+		return
+	}
 }
