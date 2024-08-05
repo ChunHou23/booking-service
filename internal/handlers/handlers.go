@@ -8,6 +8,7 @@ import (
 
 	"github.com/ChunHou23/booking-service/internal/config"
 	"github.com/ChunHou23/booking-service/internal/forms"
+	"github.com/ChunHou23/booking-service/internal/helpers"
 	"github.com/ChunHou23/booking-service/internal/models"
 	"github.com/ChunHou23/booking-service/internal/render"
 )
@@ -29,22 +30,11 @@ func NewHandlers(r *Repository) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	remoteIP := r.RemoteAddr
-	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
-
 	render.RenderTemplate(w, r, "home.page.tmpl", &models.TemplateData{})
 }
 
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
-	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
-
-	stringMap := make(map[string]string)
-	stringMap["test"] = "Hello again"
-	stringMap["remote_ip"] = remoteIP
-
-	render.RenderTemplate(w, r, "about.page.tmpl", &models.TemplateData{
-		StringMap: stringMap,
-	})
+	render.RenderTemplate(w, r, "about.page.tmpl", &models.TemplateData{})
 }
 
 func (m *Repository) GeneralSuite(w http.ResponseWriter, r *http.Request) {
@@ -74,7 +64,8 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 
 	out, err := json.MarshalIndent(resp, "", "     ")
 	if err != nil {
-		log.Println(err)
+		helpers.ServerError(w, err)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -99,7 +90,7 @@ func (m *Repository) MakeReservation(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) PostMakeReservation(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
-		log.Println(err)
+		helpers.ServerError(w, err)
 		return
 	}
 	reservation := models.Reservation{
@@ -111,7 +102,7 @@ func (m *Repository) PostMakeReservation(w http.ResponseWriter, r *http.Request)
 
 	form := forms.New(r.PostForm)
 	form.Required("first_name", "last_name", "email", "phone_number")
-	form.MinLength("first_name", 3, r)
+	form.MinLength("first_name", 3)
 	form.IsEmail("email")
 	if !form.Valid() {
 		data := make(map[string]interface{})
@@ -132,7 +123,7 @@ func (m *Repository) PostMakeReservation(w http.ResponseWriter, r *http.Request)
 func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
 	reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	if !ok {
-		log.Println("Cannot get items from session")
+		m.App.ErrorLog.Println("Cannot get items from session")
 		m.App.Session.Put(r.Context(), "error", "Cannot get reservatin from session")
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
