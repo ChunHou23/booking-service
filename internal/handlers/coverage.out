@@ -1,0 +1,22 @@
+mode: set
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:21.47,25.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:27.33,29.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:31.67,36.2 3 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:38.68,48.2 5 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:50.75,52.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:54.74,56.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:58.75,60.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:62.79,67.2 4 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:69.79,76.16 3 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:76.16,78.3 1 0
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:80.2,81.14 2 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:84.70,86.2 1 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:88.78,97.2 4 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:99.82,101.16 2 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:101.16,104.3 2 0
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:105.2,116.19 6 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:116.19,125.3 4 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:127.2,129.66 2 0
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:132.81,134.9 2 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:134.9,139.3 4 1
+github.com/ChunHou23/booking-service/internal/handlers/handlers.go:141.2,146.4 4 0

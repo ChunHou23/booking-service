@@ -1,0 +1,23 @@
+mode: set
+github.com/ChunHou23/booking-service/internal/render/render.go:21.39,23.2 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:25.84,31.2 5 1
+github.com/ChunHou23/booking-service/internal/render/render.go:33.105,36.18 2 1
+github.com/ChunHou23/booking-service/internal/render/render.go:36.18,38.3 1 0
+github.com/ChunHou23/booking-service/internal/render/render.go:38.8,40.3 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:42.2,43.9 2 1
+github.com/ChunHou23/booking-service/internal/render/render.go:43.9,46.3 2 1
+github.com/ChunHou23/booking-service/internal/render/render.go:48.2,54.16 5 1
+github.com/ChunHou23/booking-service/internal/render/render.go:54.16,57.3 2 0
+github.com/ChunHou23/booking-service/internal/render/render.go:59.2,59.12 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:62.67,66.16 3 1
+github.com/ChunHou23/booking-service/internal/render/render.go:66.16,68.3 1 0
+github.com/ChunHou23/booking-service/internal/render/render.go:70.2,70.29 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:70.29,73.17 3 1
+github.com/ChunHou23/booking-service/internal/render/render.go:73.17,75.4 1 0
+github.com/ChunHou23/booking-service/internal/render/render.go:77.3,78.17 2 1
+github.com/ChunHou23/booking-service/internal/render/render.go:78.17,80.4 1 0
+github.com/ChunHou23/booking-service/internal/render/render.go:82.3,82.23 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:82.23,84.18 2 1
+github.com/ChunHou23/booking-service/internal/render/render.go:84.18,86.5 1 0
+github.com/ChunHou23/booking-service/internal/render/render.go:89.3,89.21 1 1
+github.com/ChunHou23/booking-service/internal/render/render.go:92.2,92.21 1 1

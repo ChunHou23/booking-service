@@ -1,0 +1,12 @@
+mode: set
+github.com/ChunHou23/booking-service/cmd/web/main.go:21.13,23.16 2 0
+github.com/ChunHou23/booking-service/cmd/web/main.go:23.16,25.3 1 0
+github.com/ChunHou23/booking-service/cmd/web/main.go:27.2,33.16 3 0
+github.com/ChunHou23/booking-service/cmd/web/main.go:36.18,50.16 10 1
+github.com/ChunHou23/booking-service/cmd/web/main.go:50.16,53.3 2 0
+github.com/ChunHou23/booking-service/cmd/web/main.go:55.2,62.12 6 1
+github.com/ChunHou23/booking-service/cmd/web/middleware.go:10.53,11.71 1 0
+github.com/ChunHou23/booking-service/cmd/web/middleware.go:11.71,14.3 2 0
+github.com/ChunHou23/booking-service/cmd/web/middleware.go:17.45,28.2 3 1
+github.com/ChunHou23/booking-service/cmd/web/middleware.go:31.50,33.2 1 1
+github.com/ChunHou23/booking-service/cmd/web/route.go:12.49,39.2 18 1
