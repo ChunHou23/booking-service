@@ -1,1 +1,6 @@
 .DS_Store
+coverage.out
+booking-service
+run.sh
+*.code-workspace
+database.yml
