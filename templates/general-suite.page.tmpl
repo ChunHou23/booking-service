@@ -33,51 +33,6 @@
 
 {{define "js"}}
     <script>
-        document.getElementById("check-availability-button").addEventListener("click", function() {
-            let html = `
-                <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-row" id="reservation-dates-modal">
-                                <div class="col">
-                                    <input required type="text" class="form-control" name="start" id="start" placeholder="Arrival Date">
-                                </div>
-                                <div class="col">
-                                    <input required type="text" class="form-control" name="end" id="end" placeholder="Departure Date">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            `
-            attention.custom({
-                msg: html,
-                title: "Choose your date",
-                willOpen: () => {
-                    const elem = document.getElementById("reservation-dates-modal")
-                    const rp = new DateRangePicker(elem, {
-                        format: 'yyyy-mm-dd',
-                        showOnFocus: false,
-                        orientation: 'top'
-                    })
-                },
-                callback: function(result) {
-                    console.log("called")
-
-                    let form = document.getElementById("check-availability-form");
-                    let formData = new FormData(form);
-                    formData.append("csrf_token", "{{.CSRFToken}}")
-
-                    fetch('search-availability-json', {
-                        method: "post",
-                        body: formData,
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data)
-                        })
-                }
-            })
-        })
+        BookRoom("1", "{{.CSRFToken}}")
     </script>
 {{end}}
