@@ -30,6 +30,9 @@ func main() {
 	}
 	defer db.SQL.Close()
 
+	defer close(app.MailChan)
+	listenForMail()
+
 	srv := &http.Server{
 		Addr:    portNumber,
 		Handler: routes(&app),
@@ -44,8 +47,12 @@ func run() (*driver.DB, error) {
 	gob.Register(models.User{})
 	gob.Register(models.Room{})
 	gob.Register(models.Restriction{})
+	gob.Register(map[string]int{})
+
+	mailChan := make(chan models.MailData)
 
 	app.InProduction = false
+	app.MailChan = mailChan
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
